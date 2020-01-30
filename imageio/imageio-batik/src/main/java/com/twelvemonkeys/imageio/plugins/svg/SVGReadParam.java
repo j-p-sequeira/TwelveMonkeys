@@ -41,6 +41,7 @@ import java.awt.*;
 public class SVGReadParam extends ImageReadParam {
     private Paint background;
     private String baseURI;
+    private Dimension canvasSize;
 
     public Paint getBackgroundColor() {
         return background;
@@ -52,6 +53,26 @@ public class SVGReadParam extends ImageReadParam {
 
     public String getBaseURI() {
         return baseURI;
+    }
+
+    public Dimension getCanvasSize() {
+        return canvasSize;
+    }
+    
+    public int getCanvasWidth() {
+        return canvasSize == null ? -1 : canvasSize.width;
+    }
+    
+    public int getCanvasHeight() {
+        return canvasSize == null ? -1 : canvasSize.height;
+    }
+    
+    public void setCanvasSize(Dimension availableSize) {
+        canvasSize = availableSize;
+    }
+    
+    public void setCanvasSize(int availableWidth, int availableHeight) {
+        canvasSize = new Dimension(availableWidth, availableHeight);
     }
 
     public void setBaseURI(String pBaseURI) {
